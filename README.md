@@ -82,11 +82,11 @@ In order to create a multiple line plot, first the data frame which contains the
 > 
 > citytype_sum_fare_week=pivot_df_2.resample('W').sum()
 
-The output is as the following:
+The output in the top 10 weeks is as the following:
 
 ![](./Resources/Weekly_Fare.png)
 
-The object-oriented interface method is used to plot line grapgh of fare against time (in week) for each type of city to see their trend visually. This was done in the same coordinate plane to compare the trends in city type. The methods is as follows:
+The object-oriented interface method is used to plot line grapgh of fare against time (in week) for each type of city to see their trend visually. This was done in the same coordinate plane to compare the trends in city type. The method is as follows:
 
 > style.use('fivethirtyeight')
 > 
@@ -114,6 +114,14 @@ When we run the codes we will see the following graph:
 
 ![](./Resources/PyBer_Fare_Summary.png)
 
-
+Acording to the graph, the total weekly fair in rural cities is around $250, the total weekly fare in suburban cities is around $1100 and the total weekly fare in urban cities is around $2200. Amazingly, in the week which starts the day 02/16/2022 total fares rise to the maximum in all of the three city type.
 
 ## Summary
+
+The total number of rides in urban cities is 13 times that in rural cities; the ratio of corresponding total fares is not 13 , it is 9.2. However, it is expected that the number of the number of total rides is proportional to the total fares. This explains why the average fare per ride in urban cities is less than that in rural cities.
+
+Similarly, the total number of rides in urban cities is 2.6 times that in suburban cities; the ratio of corresponding total fares is is around 2.1. That is why average fare per ride is 26 % less than that in in suburban cities.
+
+The average fare per driver in rural cities is more than three times that in urban cities and average fare per driver in suburban cities is approximately 2.5 times that in urban cities. Similarly, average fare per ride in both rural cities and suburban cities is around 1.5 times that of urban cities.
+
+Based on these results; the number of drivers in urban cities might be decresed, the number of drivers in suburban cities might also be decresed and the number of drivers in rural cities might be increased.
