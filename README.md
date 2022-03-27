@@ -29,7 +29,7 @@ First buy using groupby method of pandas, total number of rides, total number of
 > 
 > average_fare_per_driver=total_amount_of_fares/total_drivers
 
-and then by using theses series, a dataframe is built by the code
+and then by using these series, a dataframe is built by the code
 
 > pyyber_summary_df=pd.DataFrame({
 > 
@@ -61,9 +61,57 @@ The outcome of the data farame can be displayed as follow:
 
 ![](./Resources/Average_Fare_Per_Ride_Driver.png)
 
+In this table itn is clearly seen that altough urban cities has the maximum total number of drivers among these three type of city, they have the minimum average fare per driver. Similarly, urban cities has the maximum total number of rides among these three type of city, they have the minimum average fare per ride.
+
+In fact, average fare per driver in rural cities is more than three times that in urban cities and average fare per driver in suburban cities is approximately 2.5 times that in urban cities. Similarly, average fare per ride in both rural cities and suburban cities is around 1.5 times that of urban cities.
+
 ### Analysis of the Total Weekly Fares for Each Type of City
 
+The total weekly fare within the dates 01/01/2019 and 04/28/2019, for each city type is visualized by multiple line plot.
+In order to create a multiple line plot, first the data frame which contains the dates and the corresponding total fare for each city type is built by using the series of codes
 
+> total_fare_for_date=pyber_data_df.groupby(["type","date"]).sum()["fare"]
+> 
+> total_fare_for_date=total_fare_for_date.reset_index()
+> 
+> pivot_df_1=total_fare_for_date.pivot(index="date",columns="type",values="fare")
+> 
+> pivot_df_2=pivot_df_1.loc['2019-01-01':'2019-04-28']
+> 
+> pivot_df_2.index=pd.to_datetime(pivot_df_2.index)
+> 
+> citytype_sum_fare_week=pivot_df_2.resample('W').sum()
 
+The output is as the following:
+
+![](./Resources/Weekly_Fare.png)
+
+The object-oriented interface method is used to plot line grapgh of fare against time (in week) for each type of city to see their trend visually. This was done in the same coordinate plane to compare the trends in city type. The methods is as follows:
+
+> style.use('fivethirtyeight')
+> 
+> x_labels = ["Rural", "Suburban","Urban"]
+> 
+> fig, ax = plt.subplots(figsize=(18, 6))
+> 
+> ax.set_title('Total Weekly Fare by City Type (2019)',fontsize=20)
+> 
+> ax.set_ylabel('Fare($USD)',fontsize=14)
+> 
+> ax.plot(citytype_sum_fare_week,label=x_labels)
+> 
+> ax.set_yticks(np.arange(0, 2550, step=500.0))
+> 
+> plt.legend()
+> 
+> lgnd = plt.legend(fontsize="12", mode="Expanded",
+> 
+>         scatterpoints=1, loc='best', title="City Type")
+>         
+>         plt.show()  
+
+When we run the codes we will see the following graph:
+
+![](./Resources/PyBer_Fare_Summary.png)
 
 ## Summary
