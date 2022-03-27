@@ -4,14 +4,14 @@ In this study,two csv documents are merged and analyzed. First document, ![city_
 
 In the work, a summary DataFrame of the ride-sharing data by city type is created. Then, using Pandas and Matplotlib, a multiple-line graph that shows the total weekly fares, within the dates 01/01/2019 and 04/28/2019, for each city type is created. 
 
-Finally, based on the findingd in the work a written report that summarizes how the data differs by city type and how those differences can be used by decision-makers at PyBer is prepared and presented.
+Finally, based on the findings in the work a written report that summarizes how the data differs by city type and how those differences can be used by decision-makers at PyBer is prepared and presented.
 
 ### Purpose
 
-The purpuse of the analysis is to find out how data concerning fare differs by city type a and how to use these findinns to make decision.
-
+The purpuse of the analysis is to find out how data concerning fare differs by city type and how to use these findings to make decision.
 
 ## Results of Analysis and Essential Points of the Code
+
 
 
 
