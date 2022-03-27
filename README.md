@@ -18,7 +18,7 @@ In the code, the corresponding methods the python librories; pandas, matplotlib 
 
 ### Analysis of Average Fare per Ride and Average Fare Per Driver for Each Type of City
 
-First buy using groupby method of pandas, total number of rides, total number of drivers, total amaount of fare, the average fare per ride and the average fare per driver for each cyty type are calculated as a series. The codes are as follows
+First by using groupby method of pandas, total number of rides, total number of drivers, total amaount of fare, the average fare per ride and the average fare per driver for each cyty type are calculated and organized as series. The codes are as follows
 > total_rides=pyber_data_df.groupby(["type"]).count()["ride_id"]
 > 
 > total_drivers=city_data_df.groupby(["type"]).sum()["driver_count"]
@@ -45,7 +45,7 @@ and then by using these series, a dataframe is built by the code
 >                  
 > })
 
-the data frame is is formatted by 
+The data frame is is formatted by 
 
 > pyber_summary_df["Total Rides"] = pyber_summary_df["Total Rides"].map("{:,}".format)
 > 
@@ -57,17 +57,17 @@ the data frame is is formatted by
 > 
 > pyber_summary_df["Average Fare Per Driver"] = pyber_summary_df["Average Fare Per Driver"].map("{:.2f}".format)
 
-The outcome of the data farame can be displayed as follow:
+The outcome of the data frame can be displayed as follow:
 
 ![](./Resources/Average_Fare_Per_Ride_Driver.png)
 
-In this table itn is clearly seen that altough urban cities has the maximum total number of drivers among these three type of city, they have the minimum average fare per driver. Similarly, urban cities has the maximum total number of rides among these three type of city, they have the minimum average fare per ride.
+In this table it is clearly seen that altough urban cities has the maximum total number of drivers among these three type of city, they have the minimum average fare per driver. Similarly, urban cities has the maximum total number of rides among these three type of city, they have the minimum average fare per ride.
 
 In fact, average fare per driver in rural cities is more than three times that in urban cities and average fare per driver in suburban cities is approximately 2.5 times that in urban cities. Similarly, average fare per ride in both rural cities and suburban cities is around 1.5 times that of urban cities.
 
 ### Analysis of the Total Weekly Fares for Each Type of City
 
-The total weekly fare within the dates 01/01/2019 and 04/28/2019, for each city type is visualized by multiple line plot.
+The total weekly fare within the dates 01/01/2019 and 04/28/2019, for each city type is visualized by a multiple line plot.
 In order to create a multiple line plot, first the data frame which contains the dates and the corresponding total fare for each city type is built by using the series of codes
 
 > total_fare_for_date=pyber_data_df.groupby(["type","date"]).sum()["fare"]
@@ -113,5 +113,7 @@ The object-oriented interface method is used to plot line grapgh of fare against
 When we run the codes we will see the following graph:
 
 ![](./Resources/PyBer_Fare_Summary.png)
+
+
 
 ## Summary
